@@ -5,12 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Сильный ум в сильном теле</title>
   <style>
-    /* Цветовая гамма античности */
+    /* Подключение кастомного шрифта */
+    @font-face {
+      font-family: 'Vertino';
+      src: url('fonts/Vertino.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
     body {
       margin: 0;
-      font-family: 'Georgia', serif;
+      font-family: 'Georgia', serif; /* основной текст */
       background: #fdf6e3; /* светло-бежевый фон */
-      color: #5a4631; /* тёмно-коричневый текст для контраста */
+      color: #5a4631; /* тёмно-коричневый текст */
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -19,11 +26,24 @@
       text-align: justify;
     }
 
-    h1 {
-      font-size: 2rem;
-      color: #d4a373; /* золотистый оттенок для заголовка */
-      margin-top: 30px;
+    .header {
       text-align: center;
+      margin-top: 30px;
+    }
+
+    .header h1 {
+      font-family: 'Vertino', serif; /* кастомный шрифт */
+      font-size: 2rem;
+      color: #d4a373; /* золотистый оттенок */
+      margin: 0;
+    }
+
+    .header h2 {
+      font-family: 'Vertino', serif; /* кастомный шрифт */
+      font-size: 1.7rem;
+      color: #c68c53; /* чуть более тёплый оттенок */
+      margin: 0;
+      margin-top: 10px;
     }
 
     .video-container {
@@ -47,10 +67,13 @@
       margin-bottom: 20px;
     }
 
-    /* Адаптация под маленькие экраны */
     @media (max-width: 500px) {
-      h1 {
+      .header h1 {
         font-size: 1.5rem;
+      }
+
+      .header h2 {
+        font-size: 1.3rem;
       }
 
       p {
@@ -60,11 +83,14 @@
   </style>
 </head>
 <body>
-  <h1>Сильный ум в сильном теле</h1>
+  <div class="header">
+    <h1>Сильный ум</h1>
+    <h2>в сильном теле</h2>
+  </div>
 
   <div class="video-container">
     <video controls>
-      <source src="images/videva.mp4" type="video/mp4">
+      <source src="videva.mp4" type="video/mp4">
       Ваш браузер не поддерживает воспроизведение видео.
     </video>
   </div>
