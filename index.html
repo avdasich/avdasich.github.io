@@ -3,83 +3,74 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Математический Парк</title>
+  <title>Сильный ум в сильном теле</title>
   <style>
-    /* Фон и цветовая схема */
+    /* Цветовая гамма античности */
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #4a90e2, #50e3c2, #9b59b6);
-      color: #fff;
+      font-family: 'Georgia', serif;
+      background: #fdf6e3; /* светло-бежевый фон */
+      color: #5a4631; /* тёмно-коричневый текст для контраста */
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-start;
-      min-height: 100vh;
-      text-align: center;
       padding: 20px;
+      line-height: 1.6;
+      text-align: justify;
     }
 
     h1 {
-      margin-top: 40px;
       font-size: 2rem;
-      text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+      color: #d4a373; /* золотистый оттенок для заголовка */
+      margin-top: 30px;
+      text-align: center;
     }
 
-    .image-container {
-      margin: 30px 0;
-      max-width: 90%;
-      border-radius: 20px;
+    .video-container {
+      width: 100%;
+      max-width: 600px;
+      margin: 20px 0;
+      border-radius: 15px;
       overflow: hidden;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-      transition: transform 0.3s;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
     }
 
-    .image-container:hover {
-      transform: scale(1.05);
-    }
-
-    img {
+    video {
       width: 100%;
       height: auto;
       display: block;
     }
 
     p {
-      font-size: 1.2rem;
-      max-width: 400px;
-      line-height: 1.5;
+      font-size: 1rem;
+      max-width: 600px;
+      margin-bottom: 20px;
     }
 
+    /* Адаптация под маленькие экраны */
     @media (max-width: 500px) {
       h1 {
         font-size: 1.5rem;
       }
 
       p {
-        font-size: 1rem;
+        font-size: 0.95rem;
       }
     }
   </style>
 </head>
 <body>
-  <h1>Математический Парк</h1>
+  <h1>Сильный ум в сильном теле</h1>
 
-  <div class="image-container">
-    <img src="images/poni.jpeg" alt="poni">
+  <div class="video-container">
+    <video controls>
+      <source src="videva.mp4" type="video/mp4">
+      Ваш браузер не поддерживает воспроизведение видео.
+    </video>
   </div>
 
-  <p>Добро пожаловать в мир математики и красоты! Здесь числа и геометрия встречаются с природой и искусством.</p>
-</body>
-</html>
+  <p>Античные математики и философы вовсе не были «сухими книжниками». Например, Платон получил своё прозвище за крепкое телосложение и серьёзно занимался борьбой; он даже участвовал в состязаниях на Истмийских играх. Пифагор и его ученики считали спорт и телесную гармонию необходимой частью духовного развития. Аристотель включал гимнастику в обязательную программу воспитания, считая, что тренировки укрепляют характер и тело, если не доводить их до крайности.</p>
 
-<body>
-  <h1>Математический Парк</h1>
-
-  <div class="image-container">
-    <img src="https://avdasich.github.io/images/poni.jpeg" alt="poni" width="400">
-  </div>
-
-  <p>Добро пожаловать в мир математики и красоты! Здесь числа и геометрия встречаются с природой и искусством.</p>
+  <p>В греческих школах (гимнасиях) спорт и математика всегда шли рука об руку: бег, борьба и метание диска соседствовали с геометрией и музыкой.</p>
 </body>
 </html>
