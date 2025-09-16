@@ -4,20 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Сильный ум в сильном теле</title>
-  <style>
-    /* Подключение кастомного шрифта */
-    @font-face {
-      font-family: 'Vertino';
-      src: url('fonts/Vertino.otf') format('opentype');
-      font-weight: normal;
-      font-style: normal;
-    }
+  
+  <!-- Подключение шрифта Cormorant с Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@700&display=swap&subset=cyrillic" rel="stylesheet">
 
+  <style>
     body {
       margin: 0;
       font-family: 'Georgia', serif; /* основной текст */
       background: #fdf6e3; /* светло-бежевый фон */
-      color: #5a4631; /* тёмно-коричневый текст */
+      color: #5a4631;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -31,19 +27,14 @@
       margin-top: 30px;
     }
 
+    /* Заголовок одним размером */
     .header h1 {
-      font-family: 'Vertino', serif; /* кастомный шрифт */
-      font-size: 2rem;
+      font-family: 'Cormorant', serif;
+      font-size: 2rem; /* одинаковый размер для всех строк */
       color: #d4a373; /* золотистый оттенок */
+      line-height: 1.1; /* уменьшенный интервал между строками */
+      text-align: center;
       margin: 0;
-    }
-
-    .header h2 {
-      font-family: 'Vertino', serif; /* кастомный шрифт */
-      font-size: 1.7rem;
-      color: #c68c53; /* чуть более тёплый оттенок */
-      margin: 0;
-      margin-top: 10px;
     }
 
     .video-container {
@@ -72,10 +63,6 @@
         font-size: 1.5rem;
       }
 
-      .header h2 {
-        font-size: 1.3rem;
-      }
-
       p {
         font-size: 0.95rem;
       }
@@ -84,8 +71,7 @@
 </head>
 <body>
   <div class="header">
-    <h1>Сильный ум</h1>
-    <h2>в сильном теле</h2>
+    <h1>Сильный ум<br>в сильном теле</h1>
   </div>
 
   <div class="video-container">
@@ -100,3 +86,4 @@
   <p>В греческих школах (гимнасиях) спорт и математика всегда шли рука об руку: бег, борьба и метание диска соседствовали с геометрией и музыкой.</p>
 </body>
 </html>
+
