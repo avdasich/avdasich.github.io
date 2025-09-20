@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Сильный ум в сильном теле</title>
+  
+  <!-- Подключение шрифта Cormorant с Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@700&display=swap&subset=cyrillic" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif; /* основной текст */
+      background: #fdf6e3; /* светло-бежевый фон */
+      color: #5a4631;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      line-height: 1.6;
+      text-align: justify;
+    }
+
+    .header {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    /* Заголовок одним размером */
+    .header h1 {
+      font-family: 'Cormorant', serif;
+      font-size: 2rem; /* одинаковый размер для всех строк */
+      color: #d4a373; /* золотистый оттенок */
+      line-height: 1.1; /* уменьшенный интервал между строками */
+      text-align: center;
+      margin: 0;
+    }
+
+    .video-container {
+      width: 100%;
+      max-width: 600px;
+      margin: 20px 0;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    video {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    p {
+      font-size: 1rem;
+      max-width: 600px;
+      margin-bottom: 20px;
+    }
+
+    @media (max-width: 500px) {
+      .header h1 {
+        font-size: 1.5rem;
+      }
+
+      p {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Сильный ум<br>в сильном теле</h1>
+  </div>
+
+  <div class="video-container">
+    <video controls>
+      <source src="images/1.mp4" type="video/mp4">
+      Ваш браузер не поддерживает воспроизведение видео.
+    </video>
+  </div>
+
+  <p>Античные математики и философы вовсе не были «сухими книжниками». Например, Платон получил своё прозвище за крепкое телосложение и серьёзно занимался борьбой; он даже участвовал в состязаниях на Истмийских играх. Пифагор и его ученики считали спорт и телесную гармонию необходимой частью духовного развития. Аристотель включал гимнастику в обязательную программу воспитания, считая, что тренировки укрепляют характер и тело, если не доводить их до крайности.</p>
+
+  <p>В греческих школах (гимнасиях) спорт и математика всегда шли рука об руку: бег, борьба и метание диска соседствовали с геометрией и музыкой.</p>
+</body>
+</html>
