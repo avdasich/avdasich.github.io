@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Нечто большее 🌌</title>
+    <link rel="icon" type="image/png" href="img/icons8-sunflower-50.png">
+    <link rel="stylesheet" href="/5/main.css">
+    <style>
+        body {
+            background: linear-gradient(to bottom, #f7e1d7, #dac7be, #bfaea6, #a3978e, #877f77);
+            margin: 0;
+            padding: 0;
+        }
+
+        .memories-container {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .section-title {
+            font-size: 2.5em;
+            color: #333;
+        }
+
+        .memory-block {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .memory-card {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 200px;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .memory-card img,
+        .memory-card video {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            display: block;
+            margin: auto;
+            width: 80%;
+            max-width: 700px;
+        }
+
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            font-size: 24px;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            cursor: pointer;
+            z-index: 1;
+        }
+
+        .prev {
+            left: 0;
+        }
+
+        .next {
+            right: 0;
+        }
+
+        .message p {
+            font-size: 1.2em;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="memories-container">
+        <h1 class="section-title">Просто погляди:)</h1>
+
+        <div class="memory-block" id="memoryBlock"></div>
+
+        <div class="message">
+            <p>Твои ведь все ребятки)</p>
+        </div>
+    </div>
+
+    <div id="myModal" class="modal">
+        <span class="prev" onclick="changeImage(-1)">&#10094;</span>
+        <img class="modal-content" id="modalImage">
+        <video class="modal-content" id="modalVideo" controls style="display: none;"></video>
+        <span class="next" onclick="changeImage(1)">&#10095;</span>
+    </div>
+
+    <script>
+        const images = [
+            "/img2/Пиплы/-256029286272002182.MP4",
+            "/img2/Пиплы/-2822800644444926499.MP4",
+            "/img2/Пиплы/-9120357629790528279.MP4",
+            "/img2/Пиплы/218117641738181854.MP4",
+            "/img2/Пиплы/1827011080268683281.MP4",
+            "/img2/Пиплы/IMG_4710.PNG",
+            "/img2/Пиплы/IMG_4764.JPG",
+            "/img2/Пиплы/IMG_4765.JPG",
+            "/img2/Пиплы/IMG_4777.JPG",
+            "/img2/Пиплы/IMG_4784.JPG",
+            "/img2/Пиплы/IMG_4792.JPG",
+            "/img2/Пиплы/IMG_4793.JPG",
+            "/img2/Пиплы/IMG_4807.JPG",
+            "/img2/Пиплы/IMG_4808.JPG",
+            "/img2/Пиплы/IMG_4850.JPG",
+            "/img2/Пиплы/IMG_4851.JPG",
+            "/img2/Пиплы/IMG_4852.JPG",
+            "/img2/Пиплы/IMG_4853.JPG",
+            "/img2/Пиплы/photo_2025-04-13 19.35.40.jpeg"
+        ];
+
+        const memoryBlock = document.getElementById("memoryBlock");
+
+        images.forEach((image, index) => {
+            const card = document.createElement("div");
+            card.classList.add("memory-card");
+            card.setAttribute("onclick", `openModal(${index})`);
+
+            if (image.endsWith(".MP4")) {
+                const video = document.createElement("video");
+                video.src = image;
+                video.muted = true;
+                video.playsInline = true;
+                video.loop = true;
+                video.autoplay = true;
+                card.appendChild(video);
+            } else {
+                const img = document.createElement("img");
+                img.src = image;
+                card.appendChild(img);
+            }
+
+            memoryBlock.appendChild(card);
+        });
+
+        let currentImageIndex = 0;
+
+        function openModal(index) {
+            const modal = document.getElementById("myModal");
+            const modalImage = document.getElementById("modalImage");
+            const modalVideo = document.getElementById("modalVideo");
+            const currentSrc = images[index];
+
+            modal.style.display = "block";
+            currentImageIndex = index;
+
+            if (currentSrc.endsWith(".MP4")) {
+                modalImage.style.display = "none";
+                modalVideo.style.display = "block";
+                modalVideo.src = currentSrc;
+                modalVideo.muted = false;
+                modalVideo.volume = 1.0;
+                modalVideo.play();
+            } else {
+                modalVideo.pause();
+                modalVideo.style.display = "none";
+                modalImage.style.display = "block";
+                modalImage.src = currentSrc;
+            }
+        }
+
+        function changeImage(direction) {
+            currentImageIndex = (currentImageIndex + direction + images.length) % images.length;
+            openModal(currentImageIndex);
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById("myModal");
+            const modalVideo = document.getElementById("modalVideo");
+
+            if (event.target === modal) {
+                modal.style.display = "none";
+                modalVideo.pause();
+                modalVideo.muted = true;
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ты ✨</title>
+    <link rel="icon" type="image/png" href="img/icons8-sunflower-50.png">
+    <link rel="stylesheet" href="/6/main.css">
+</head>
+<body>
+    <div class="memories-container">
+        <h1 class="section-title">Нечто давнее, а может и позабытое</h1>
+
+        <div class="memory-block" id="memoryBlock"></div>
+
+        <div class="message">
+            <p>Быстро время летит, не правда ли?</p>
+        </div>
+    </div>
+
+    <div id="myModal" class="modal">
+        <span class="prev" onclick="changeImage(-1)">&#10094;</span>
+        <img class="modal-content" id="modalImage">
+        <span class="next" onclick="changeImage(1)">&#10095;</span>
+    </div>
+
+    <script>
+    const images = [
+    "/img2/прошлое/IMG_4726.PNG", "/img2/прошлое/IMG_4728.PNG", "/img2/прошлое/IMG_4729.PNG", 
+    "/img2/прошлое/IMG_4730.PNG", "/img2/прошлое/IMG_4731.PNG", "/img2/прошлое/IMG_4732.PNG", 
+    "/img2/прошлое/IMG_4733.PNG", "/img2/прошлое/IMG_4734.PNG", "/img2/прошлое/IMG_4751.JPG", 
+    "/img2/прошлое/IMG_4773.JPG", "/img2/прошлое/IMG_4775.JPG", "/img2/прошлое/IMG_4832.JPG", 
+    "/img2/прошлое/IMG_4833.JPG", "/img2/прошлое/IMG_4834.JPG", "/img2/прошлое/IMG_4835.JPG", 
+    "/img2/прошлое/IMG_4846.JPG", "/img2/прошлое/IMG_4847.JPG"
+];
+
+const descriptions = [
+    "Ам нам нааааам 😋", 
+    "Ну да я, и что?? 😏", 
+    "И тут я, вопросы??? 🤔",
+    "И тут я тоже))) 😜", 
+    "Смотрим смотрим 👀", 
+    "И когда это было? :0 🤨", 
+    "Тише тише, ребенок 🤫", 
+    "Я тут самая взрослая 😎", 
+    "Веточки какие залипательные 🌿", 
+    "Ребенок держит ребенка на руках 🍼", 
+    "Я знаю всю жизнь 🌟", 
+    "Место, я тут мамочка на дороге 🚸", 
+    "Вот такие мы крутые) 😎", 
+    "Съел, да? В соло этот диплом 🎓", 
+    "Он самый 💪", 
+    "И когда это было? :0 😱", 
+    "Зубки показывай 😁"
+];
+
+
+        const memoryBlock = document.getElementById("memoryBlock");
+
+        images.forEach((image, index) => {
+            const card = document.createElement("div");
+            card.classList.add("memory-card");
+            card.setAttribute("onclick", `openModal(${index})`);
+
+            const img = document.createElement("img");
+            img.src = image;
+            img.alt = `Воспоминание ${index + 1}`;
+            card.appendChild(img);
+
+            const textDiv = document.createElement("div");
+            textDiv.classList.add("memory-text");
+            textDiv.innerHTML = `<p>${descriptions[index]}</p>`; 
+            card.appendChild(textDiv);
+
+            memoryBlock.appendChild(card);
+        });
+
+        let currentImageIndex = 0;
+        function openModal(index) {
+            const modal = document.getElementById("myModal");
+            const modalImage = document.getElementById("modalImage");
+            modal.style.display = "block";
+            modalImage.src = images[index];
+
+            currentImageIndex = index;
+        }
+
+        function changeImage(direction) {
+            currentImageIndex = (currentImageIndex + direction + images.length) % images.length;
+            const modalImage = document.getElementById("modalImage");
+            modalImage.src = images[currentImageIndex];
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById("myModal");
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
+
